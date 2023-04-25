@@ -1,0 +1,106 @@
+04/25/2023 10:15:39 - INFO - rediscluster.client -   Created new instance of RedisCluster client instance
+04/25/2023 10:15:39 - INFO - rediscluster.client -   Using ClusterConnectionPool
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Creating new ClusterConnectionPool instance
+04/25/2023 10:15:39 - INFO - root -   Number of CPUs: 16
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC140314.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC270703.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC125340.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC140314.xml
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC204495.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC270703.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC125340.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC204495.xml
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC126080.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC222961.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC126080.xml
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC212558.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC222961.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC212558.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC156578.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC169038.xml
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC156578.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC212776.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC169038.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC270692.xml
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC212776.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC261870.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC270692.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC280685.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC261870.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC270701.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC280685.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC300679.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC270701.xml
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC125375.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC300679.xml
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC136939.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC125375.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC293432.xml
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC136939.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC222911.xml
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC293432.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC125543.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC222911.xml
+04/25/2023 10:15:39 - INFO - root -   Submitting task
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC302072.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC125543.xml
+04/25/2023 10:15:39 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 10:15:39 - INFO - root -   Processing article_id PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   Waiting for tasks to complete
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC302072.xml
+04/25/2023 10:15:39 - INFO - root -   Processing ..PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   PMC222908.xml
+04/25/2023 10:15:39 - INFO - root -   Completed

@@ -1,0 +1,6 @@
+04/25/2023 10:14:26 - INFO - rediscluster.client -   Created new instance of RedisCluster client instance
+04/25/2023 10:14:26 - INFO - rediscluster.client -   Using ClusterConnectionPool
+04/25/2023 10:14:26 - INFO - rediscluster.connection -   Creating new ClusterConnectionPool instance
+04/25/2023 10:14:26 - INFO - root -   Number of CPUs: 16
+04/25/2023 10:14:26 - INFO - root -   Waiting for tasks to complete
+04/25/2023 10:14:26 - INFO - root -   Completed

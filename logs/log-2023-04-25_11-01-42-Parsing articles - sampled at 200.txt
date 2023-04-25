@@ -1,0 +1,96 @@
+04/25/2023 11:01:42 - INFO - rediscluster.client -   Created new instance of RedisCluster client instance
+04/25/2023 11:01:42 - INFO - rediscluster.client -   Using ClusterConnectionPool
+04/25/2023 11:01:42 - INFO - rediscluster.connection -   Creating new ClusterConnectionPool instance
+04/25/2023 11:01:42 - INFO - root -   Number of CPUs: 16
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC140314.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC270703.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC140314.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC270703.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC125340.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC125340.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC204495.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC126080.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC222961.xml
+04/25/2023 11:01:42 - INFO - rediscluster.connection -   Createing new ClusterConnection instance
+04/25/2023 11:01:42 - INFO - root -   already processed PMC204495.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC212558.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC222961.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC212558.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC126080.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC156578.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC169038.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC156578.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC212776.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC169038.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC270692.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC212776.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC261870.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC270692.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC280685.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC270701.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC261870.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   already processed PMC280685.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC300679.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC270701.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC125375.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC300679.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC136939.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC293432.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC125375.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC222911.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC136939.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC293432.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC125543.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC222911.xml
+04/25/2023 11:01:42 - INFO - root -   Submitting task
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC302072.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC125543.xml
+04/25/2023 11:01:42 - INFO - root -   Processing article_id PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   already processed PMC302072.xml
+04/25/2023 11:01:42 - INFO - root -   Waiting for tasks to complete
+04/25/2023 11:01:42 - INFO - root -   already processed PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   PMC222908.xml
+04/25/2023 11:01:42 - INFO - root -   Completed
