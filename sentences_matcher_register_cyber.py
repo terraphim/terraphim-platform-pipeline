@@ -1,5 +1,6 @@
 Automata=None 
 url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_cyberattack.lzma"
+role = "cyber"
 rconn=None 
 def enable_debug():
     debug=execute('GET','debug{%s}'% hashtag())
@@ -43,6 +44,7 @@ def process_item(record):
 
     global Automata
     global url
+    global role
     if not Automata:
         Automata=loadAutomata(url)
 
@@ -58,7 +60,8 @@ def process_item(record):
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
         tokens=set(record['value'][each_key].split(' '))
-        processed=execute('SISMEMBER','processed_docs_stage3{%s}' % shard_id,sentence_key)
+        # processed=execute('SISMEMBER','processed_docs_stage3{%s}' % shard_id,sentence_key)
+        processed=[]
         if not processed:
             if debug:
                 log("Matcher: length of tokens " + str(len(tokens)))
@@ -79,13 +82,10 @@ def process_item(record):
                     label_destination=pair[1][1]
                     source_canonical_name=re.sub('[^A-Za-z0-9]+', ' ', str(label_source))
                     destination_canonical_name=re.sub('[^A-Za-z0-9]+', ' ', str(label_destination))
-                    #TODO: this candidate for rgsync
-                    # execute('XADD', 'nodes_matched_{%s}' % shard_id, '*','node_id',f'{source_entity_id}','node_name',f'{source_canonical_name}')
-                    # execute('XADD', 'nodes_matched {%s}' % shard_id,'*','node_id',f'{destination_entity_id}','node_name',f'{destination_canonical_name}')
                     year=rconn.hget(f"article_id:{article_id}",'year')
                     if not year:
                         year='2021'
-                    execute('XADD', 'edges_matched_{%s}' % shard_id, '*','source',f'{source_entity_id}','destination',f'{destination_entity_id}','source_name',source_canonical_name,'destination_name',destination_canonical_name,'rank',1,'year',year)
+                    execute('XADD', 'edges_matched_%s_{%s}' % (role,shard_id), '*','source',f'{source_entity_id}','destination',f'{destination_entity_id}','source_name',source_canonical_name,'destination_name',destination_canonical_name,'rank',1,'year',year)
 
                     #FIXME: this breaks design pattern of NLP processing to support microservices pattern on front end
                     rconn.zincrby(f'edges_scored:{source_entity_id}:{destination_entity_id}',1, sentence_key)
