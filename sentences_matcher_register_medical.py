@@ -53,7 +53,9 @@ def process_item(record):
         rconn=connecttoRedis()
 
     
-    shard_id=hashtag()
+    shard_id=hashtag() 
+    
+     
     article_id=record['key'].split(':')[1]
     if debug:
         log(f"Matcher received {record['key']} and my {shard_id}")
