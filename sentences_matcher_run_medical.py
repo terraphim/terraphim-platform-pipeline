@@ -23,6 +23,9 @@ def OnRegisteredAutomata():
     with httpimport.remote_repo(['terraphim_utils'], "https://raw.githubusercontent.com/terraphim/terraphim-platform-automata/main/"):
         import terraphim_utils
     from terraphim_utils import loadAutomata
+    debug=enable_debug()
+    if debug:
+        log(f"Loading automata from url {url}")
     Automata=loadAutomata(url)
     return Automata
 
@@ -46,6 +49,9 @@ def process_item(record):
     global url
     global role
     if not Automata:
+        debug=enable_debug()
+        if debug:
+            log(f"Loading automata from url {url}")
         Automata=loadAutomata(url)
 
     global rconn

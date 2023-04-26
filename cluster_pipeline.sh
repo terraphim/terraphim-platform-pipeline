@@ -8,8 +8,8 @@ gears-cli run --host 127.0.0.1 --port 30001 edges_to_graph_streamed.py --require
 echo "edges_to_graph_streamed.py registered"
 echo "10 seconds for cluster to recover"
 sleep 10
-gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_medical.py --requirements requirements_gears_aho.txt
-echo "sentences_matcher_register.py registered."
+# gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_medical.py --requirements requirements_gears_aho.txt
+# echo "sentences_matcher_register.py registered."
 sleep 10
 echo "Kick off matching"
 echo "Submit 25 articles into pipeline" 

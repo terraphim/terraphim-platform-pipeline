@@ -62,4 +62,5 @@ def process_item(record):
 
 bg = GearsBuilder('StreamReader')
 bg.foreach(process_item)
+bg.count()
 bg.run('edges_matched*', batch=1, mode="async_local",onRegistered=OnRegisteredConnect, onFailedPolicy='continue', trimStream=True)

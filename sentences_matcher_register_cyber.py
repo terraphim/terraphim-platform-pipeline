@@ -1,5 +1,5 @@
 Automata=None 
-url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_cyberattack.lzma"
+url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_cyberattack_tolower.lzma"
 role = "cyber"
 rconn=None 
 def enable_debug():
@@ -23,6 +23,9 @@ def OnRegisteredAutomata():
     with httpimport.remote_repo(['terraphim_utils'], "https://raw.githubusercontent.com/terraphim/terraphim-platform-automata/main/"):
         import terraphim_utils
     from terraphim_utils import loadAutomata
+    debug=enable_debug()
+    if debug:
+        log(f"Loading automata from url {url}")
     Automata=loadAutomata(url)
     return Automata
 
@@ -46,6 +49,8 @@ def process_item(record):
     global url
     global role
     if not Automata:
+        if debug:
+            log(f"Loading automata from url {url}")
         Automata=loadAutomata(url)
 
     global rconn
@@ -60,8 +65,7 @@ def process_item(record):
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
         tokens=set(record['value'][each_key].split(' '))
-        # processed=execute('SISMEMBER','processed_docs_stage3{%s}' % shard_id,sentence_key)
-        processed=[]
+        processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
         if not processed:
             if debug:
                 log("Matcher: length of tokens " + str(len(tokens)))
@@ -87,13 +91,13 @@ def process_item(record):
                         year='2021'
                     execute('XADD', 'edges_matched_%s_{%s}' % (role,shard_id), '*','source',f'{source_entity_id}','destination',f'{destination_entity_id}','source_name',source_canonical_name,'destination_name',destination_canonical_name,'rank',1,'year',year)
 
-                    #FIXME: this breaks design pattern of NLP processing to support microservices pattern on front end
+                    
                     rconn.zincrby(f'edges_scored:{source_entity_id}:{destination_entity_id}',1, sentence_key)
 
-            execute('SADD','processed_docs_stage3{%s}' % shard_id,sentence_key)
+            execute('SADD','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
         else:
             if debug:
-                log(f"Matcher Alteady processed {sentence_key}")
+                log(f"Matcher Alteady processed {sentence_key} for rol {role}")
 
 
 

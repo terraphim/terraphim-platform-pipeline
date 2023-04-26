@@ -1,5 +1,5 @@
 Automata=None 
-url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_cyberattack.lzma"
+url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_cyberattack_tolower.lzma"
 role = "cyber"
 rconn=None 
 def enable_debug():
@@ -23,6 +23,9 @@ def OnRegisteredAutomata():
     with httpimport.remote_repo(['terraphim_utils'], "https://raw.githubusercontent.com/terraphim/terraphim-platform-automata/main/"):
         import terraphim_utils
     from terraphim_utils import loadAutomata
+    debug=enable_debug()
+    if debug:
+        log(f"Loading automata from url {url}")
     Automata=loadAutomata(url)
     return Automata
 
@@ -46,6 +49,8 @@ def process_item(record):
     global url
     global role
     if not Automata:
+        if debug:
+            log(f"Loading automata from url {url}")
         Automata=loadAutomata(url)
 
     global rconn
@@ -60,14 +65,19 @@ def process_item(record):
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
         tokens=set(record['value'][each_key].split(' '))
-        processed=execute('SISMEMBER','processed_docs_stage3{%s}' % shard_id,sentence_key)
+        processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
         if not processed:
             if debug:
+                log("Matcher: tokens " + str(tokens))
                 log("Matcher: length of tokens " + str(len(tokens)))
             
             tokens.difference_update(set(punctuation))
             tokens.difference_update(STOP_WORDS) 
-            matched_ents = find_matches(" ".join(tokens), Automata)
+            token_str=" ".join(tokens)
+            matched_ents = find_matches(token_str.lower(), Automata)
+            if debug:
+                log("Matcher: length of matched_ents " + str(len(matched_ents)))
+                log("Matcher: url " + str(url))
             if len(matched_ents)<1:
                 if debug:
                     log("Error matching sentence "+sentence_key)
@@ -89,10 +99,10 @@ def process_item(record):
                     #FIXME: this breaks design pattern of NLP processing to support microservices pattern on front end
                     rconn.zincrby(f'edges_scored:{source_entity_id}:{destination_entity_id}',1, sentence_key)
 
-            execute('SADD','processed_docs_stage3{%s}' % shard_id,sentence_key)
+            execute('SADD','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
         else:
             if debug:
-                log(f"Matcher Alteady processed {sentence_key}")
+                log(f"Matcher Alteady processed {sentence_key} for rol {role}")
 
 
 

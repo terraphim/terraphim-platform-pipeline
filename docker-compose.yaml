@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  redisgraph:
+    image: ghcr.io/applied-knowledge-systems/redismod:bionic
+    container_name: redisgraph
+    hostname: redisgraph
+    entrypoint: [/opt/redis-stack/bin/redis-server, /etc/redis/redis.conf]
+    volumes:
+      - ./conf/redis.conf:/etc/redis/redis.conf
+    ports:
+      - 127.0.0.1:9001:6379
+
+  rgcluster:
+    image: ghcr.io/applied-knowledge-systems/redismod:bionic
+    container_name: rgcluster
+    hostname: rgcluster
+    volumes:
+      - ./conf/docker-config_demo.sh:/cluster/config.sh
+    ports:
+      - 127.0.0.1:30001:30001
+      - 127.0.0.1:30002:30002 
+      - 127.0.0.1:30003:30003
+      - 127.0.0.1:30004:30004
+      - 127.0.0.1:30005:30005
+      - 127.0.0.1:30006:30006
+      - 127.0.0.1:30007:30007
+      - 127.0.0.1:30008:30008
