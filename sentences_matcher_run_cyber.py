@@ -64,16 +64,19 @@ def process_item(record):
         log(f"Matcher received {record['key']} and my {shard_id}")
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
-        tokens=set(record['value'][each_key].split(' '))
-        processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
+        # tokens=set(record['value'][each_key].split(' '))
+        # processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
+        processed = False
         if not processed:
-            if debug:
-                log("Matcher: tokens " + str(tokens))
-                log("Matcher: length of tokens " + str(len(tokens)))
+            # if debug:
+            #     log("Matcher: tokens " + str(tokens))
+            #     log("Matcher: length of tokens " + str(len(tokens)))
             
-            tokens.difference_update(set(punctuation))
-            tokens.difference_update(STOP_WORDS) 
-            token_str=" ".join(tokens)
+            # tokens.difference_update(set(punctuation))
+            # tokens.difference_update(STOP_WORDS) 
+            token_str=record['value'][each_key]
+            if debug:
+                log("Matcher: tokens " + str(token_str))
             matched_ents = find_matches(token_str.lower(), Automata)
             if debug:
                 log("Matcher: length of matched_ents " + str(len(matched_ents)))
