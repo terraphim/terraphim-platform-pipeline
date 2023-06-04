@@ -1,5 +1,5 @@
 Automata=None 
-url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_split_project_manager.csv.gz.lzma"
+url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_lazy_project_manager.csv.gz.lzma"
 role = "lazy-project-manager"
 rconn=None 
 def enable_debug():

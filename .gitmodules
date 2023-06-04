@@ -1,0 +1,3 @@
+[submodule "frontend-svelte"]
+	path = frontend-svelte
+	url = git@github.com:terraphim/terraphim-ui-svelte-ts.git

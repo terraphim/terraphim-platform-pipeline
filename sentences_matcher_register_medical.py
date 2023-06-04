@@ -3,7 +3,11 @@ url = "https://s3.eu-west-2.amazonaws.com/assets.thepattern.digital/automata_fre
 role = "medical"
 rconn=None 
 def enable_debug():
-    debug=execute('GET','debug{%s}'% hashtag())
+    shard_id=hashtag()
+    log("hash tag" + str(shard_id))
+    debug_key='debug{%s}'% hashtag()
+    log("debug key is {%s}" % debug_key )
+    debug=execute('GET',debug_key)
     if debug=='1':
         debug=True
     else:
@@ -23,6 +27,10 @@ def OnRegisteredAutomata():
     with httpimport.remote_repo(['terraphim_utils'], "https://raw.githubusercontent.com/terraphim/terraphim-platform-automata/main/"):
         import terraphim_utils
     from terraphim_utils import loadAutomata
+    # debug=enable_debug()
+    debug = False
+    if debug:
+        log(f"Loading automata from url {url}")
     Automata=loadAutomata(url)
     return Automata
 
@@ -46,6 +54,9 @@ def process_item(record):
     global url
     global role
     if not Automata:
+        debug=enable_debug()
+        if debug:
+            log(f"Loading automata from url {url}")
         Automata=loadAutomata(url)
 
     global rconn
@@ -53,16 +64,14 @@ def process_item(record):
         rconn=connecttoRedis()
 
     
-    shard_id=hashtag() 
-    
-     
+    shard_id=hashtag()
     article_id=record['key'].split(':')[1]
     if debug:
         log(f"Matcher received {record['key']} and my {shard_id}")
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
         tokens=set(record['value'][each_key].split(' '))
-        processed=execute('SISMEMBER','processed_docs_stage3{%s}' % shard_id,sentence_key)
+        processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
         if not processed:
             if debug:
                 log("Matcher: length of tokens " + str(len(tokens)))

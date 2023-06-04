@@ -23,7 +23,8 @@ def OnRegisteredAutomata():
     with httpimport.remote_repo(['terraphim_utils'], "https://raw.githubusercontent.com/terraphim/terraphim-platform-automata/main/"):
         import terraphim_utils
     from terraphim_utils import loadAutomata
-    debug=enable_debug()
+    # debug=enable_debug()
+    debug = False
     if debug:
         log(f"Loading automata from url {url}")
     Automata=loadAutomata(url)
@@ -65,8 +66,8 @@ def process_item(record):
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
         # tokens=set(record['value'][each_key].split(' '))
-        # processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
-        processed = False
+        processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
+        # processed = False
         if not processed:
             # if debug:
             #     log("Matcher: tokens " + str(tokens))
@@ -76,8 +77,8 @@ def process_item(record):
             # tokens.difference_update(STOP_WORDS) 
             token_str=record['value'][each_key]
             if debug:
-                log("Matcher: tokens " + str(token_str))
-            matched_ents = find_matches(token_str.lower(), Automata)
+                log(f"Matcher: tokens after removing stop words {token_str}")
+            matched_ents = find_matches(" ".join(token_str).lower(), Automata)
             if debug:
                 log("Matcher: length of matched_ents " + str(len(matched_ents)))
                 log("Matcher: url " + str(url))

@@ -1,6 +1,6 @@
 Automata=None 
-url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_cyberattack_tolower.lzma"
-role = "cyber"
+url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_lazy_project_manager.csv.gz.lzma"
+role = "lazy-project-manager"
 rconn=None 
 def enable_debug():
     debug=execute('GET','debug{%s}'% hashtag())
@@ -65,20 +65,20 @@ def process_item(record):
         log(f"Matcher received {record['key']} and my {shard_id}")
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
-        # tokens=set(record['value'][each_key].split(' '))
+        tokens=set(record['value'][each_key].split(' '))
         # processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
         processed = False
         if not processed:
-            # if debug:
-            #     log("Matcher: tokens " + str(tokens))
-            #     log("Matcher: length of tokens " + str(len(tokens)))
-            
-            # tokens.difference_update(set(punctuation))
-            # tokens.difference_update(STOP_WORDS) 
-            token_str=record['value'][each_key]
             if debug:
-                log("Matcher: tokens " + str(token_str))
-            matched_ents = find_matches(token_str.lower(), Automata)
+                log("Matcher: tokens " + str(tokens))
+                log("Matcher: length of tokens " + str(len(tokens)))
+            
+            tokens.difference_update(set(punctuation))
+            tokens.difference_update(STOP_WORDS) 
+            # token_str=record['value'][each_key]
+            if debug:
+                log(f"Matcher: tokens after removing stop words {tokens}")
+            matched_ents = find_matches(" ".join(tokens).lower(), Automata)
             if debug:
                 log("Matcher: length of matched_ents " + str(len(matched_ents)))
                 log("Matcher: url " + str(url))
@@ -100,7 +100,6 @@ def process_item(record):
                         year='2021'
                     execute('XADD', 'edges_matched_%s_{%s}' % (role,shard_id), '*','source',f'{source_entity_id}','destination',f'{destination_entity_id}','source_name',source_canonical_name,'destination_name',destination_canonical_name,'rank',1,'year',year)
 
-                    #FIXME: this breaks design pattern of NLP processing to support microservices pattern on front end
                     rconn.zincrby(f'edges_scored:{source_entity_id}:{destination_entity_id}',1, sentence_key)
 
             execute('SADD','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)

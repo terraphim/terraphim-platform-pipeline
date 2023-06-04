@@ -3,7 +3,8 @@ url = "https://s3.eu-west-2.amazonaws.com/assets.thepattern.digital/automata_fre
 role = "medical"
 rconn=None 
 def enable_debug():
-    debug=execute('GET','debug{%s}'% hashtag())
+    debug_key='debug{%s}'% hashtag()
+    debug=execute('GET',debug_key)
     if debug=='1':
         debug=True
     else:
@@ -66,7 +67,7 @@ def process_item(record):
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
         tokens=set(record['value'][each_key].split(' '))
-        processed=execute('SISMEMBER','processed_docs_stage3{%s}' % shard_id,sentence_key)
+        processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
         if not processed:
             if debug:
                 log("Matcher: length of tokens " + str(len(tokens)))
