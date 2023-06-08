@@ -1,7 +1,7 @@
 # terraphim-platform-pipeline
 Cloud (python) based pipeline for Terraphim AI assistant
 
-WIP: don't use - to be rewritten
+WIP: It's based on https://github.com/applied-knowledge-systems/the-pattern/ project and in the process of being rewritten to smaller, Rust based self-contained platform
 
 ## Overview
 
