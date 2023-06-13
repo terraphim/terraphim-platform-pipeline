@@ -1,4 +1,5 @@
 #!/bin/bash
+source /code/venv_terraphim_platform/bin/activate
 gears-cli run --host 127.0.0.1 --port 30001 set_debug_key.py
 gears-cli run --host 127.0.0.1 --port 30001 gears_pipeline_sentence_register.py --requirements requirements_gears_pipeline.txt
 echo "NLP Pipeline registered."

@@ -1,0 +1,9 @@
+[Unit]
+After=rgcluster.service
+
+[Service]
+WorkingDirectory=/code/terraphim-platform-pipeline
+ExecStart=/code/terraphim-platform-pipeline/service/start-pipeline.sh
+
+[Install]
+WantedBy=default.target
