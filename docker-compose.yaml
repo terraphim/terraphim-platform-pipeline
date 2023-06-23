@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   redisgraph:
+    platform: linux/amd64
     image: ghcr.io/applied-knowledge-systems/redismod:bionic
     container_name: redisgraph
     hostname: redisgraph
@@ -11,6 +12,7 @@ services:
       - 127.0.0.1:9001:6379
 
   rgcluster:
+    platform: linux/amd64
     image: ghcr.io/applied-knowledge-systems/redismod:bionic
     container_name: rgcluster
     hostname: rgcluster
