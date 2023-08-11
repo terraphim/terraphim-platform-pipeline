@@ -8,11 +8,12 @@ echo "edges_to_graph_streamed.py registered"
 # sleep 10
 # gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_medical.py --requirements requirements_all.txt
 # echo "sentences_matcher_register_medical.py registered."
-gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_project_lazy.py --requirements requirements_all.txt
-echo "sentences_matcher_register_project_lazy.py registered."
-gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_project.py --requirements requirements_all.txt
-echo "sentences_matcher_register_project.py registered."
-gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_cyber.py --requirements requirements_all.txt
+# gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_project_lazy.py --requirements requirements_all.txt
+# echo "sentences_matcher_register_project_lazy.py registered."
+# gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_project.py --requirements requirements_all.txt
+# echo "sentences_matcher_register_project.py registered."
+# gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_cyber.py --requirements requirements_all.txt
+gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_register_operator.py --requirements requirements_all.txt
 # gears-cli run --host 127.0.0.1 --port 30001 sentences_matcher_run_project.py --requirements requirements_gears_aho.txt
 # sleep 10
 # echo "Kick off matching"

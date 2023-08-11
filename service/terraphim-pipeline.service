@@ -2,6 +2,7 @@
 After=rgcluster.service
 
 [Service]
+Type=forking
 WorkingDirectory=/code/terraphim-platform-pipeline
 ExecStart=/code/terraphim-platform-pipeline/service/start-pipeline.sh
 

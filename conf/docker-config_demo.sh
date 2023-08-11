@@ -6,4 +6,4 @@ PORT=30000
 NODES=16
 REPLICAS=1
 PROTECTED_MODE=no
-ADDITIONAL_OPTIONS="--save "" --appendonly no --cluster-announce-ip $CONTAINER_IP --loadmodule /var/opt/redislabs/lib/modules/redisgears.so Plugin /var/opt/redislabs/modules/rg/plugin/gears_python.so PythonInstallationDir /var/opt/redislabs/modules/rg CreateVenv 1 DownloadDeps 1 "
+ADDITIONAL_OPTIONS="--save "" --appendonly no --cluster-announce-ip $CONTAINER_IP --cluster-node-timeout 30000 --proto-max-bulk-len 2048mb --loadmodule /var/opt/redislabs/lib/modules/redisgears.so Plugin /var/opt/redislabs/modules/rg/plugin/gears_python.so PythonInstallationDir /var/opt/redislabs/modules/rg CreateVenv 1 DownloadDeps 1 "

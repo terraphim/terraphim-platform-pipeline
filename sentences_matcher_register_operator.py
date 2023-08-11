@@ -1,5 +1,5 @@
 Automata=None 
-url = "https://terraphim-automata.s3.eu-west-2.amazonaws.com/automata_project_manager.csv.gz.lzma"
+url = "https://system-operator.s3.eu-west-2.amazonaws.com/term_to_id.csv.gz"
 role = "operator"
 rconn=None 
 def enable_debug():
@@ -66,19 +66,15 @@ def process_item(record):
     for each_key in record['value']:
         sentence_key=record['key']+f':{each_key}'
         # tokens=set(record['value'][each_key].split(' '))
-        processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
-        # processed = False
+        # processed=execute('SISMEMBER','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
+        processed = False
         if not processed:
-            # if debug:
-            #     log("Matcher: tokens " + str(tokens))
-            #     log("Matcher: length of tokens " + str(len(tokens)))
-            
-            # tokens.difference_update(set(punctuation))
-            # tokens.difference_update(STOP_WORDS) 
-            token_str=record['value'][each_key]
+            token_str=record['value'][each_key].lower()
+            if debug:
+                log("Matcher: tokens " + str(token_str))
             if debug:
                 log(f"Matcher: tokens after removing stop words {token_str}")
-            matched_ents = find_matches(" ".join(token_str).lower(), Automata)
+            matched_ents = find_matches(token_str, Automata)
             if debug:
                 log("Matcher: length of matched_ents " + str(len(matched_ents)))
                 log("Matcher: url " + str(url))
@@ -106,7 +102,7 @@ def process_item(record):
             execute('SADD','processed_docs_stage3_%s_{%s}' % (role,shard_id),sentence_key)
         else:
             if debug:
-                log(f"Matcher Alteady processed {sentence_key} for rol {role}")
+                log(f"Matcher Alteady processed {sentence_key} for role {role}")
 
 
 
